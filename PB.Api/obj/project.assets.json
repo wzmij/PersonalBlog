@@ -4811,6 +4811,7 @@
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
           "PB.Core": "1.0.0",
+          "autofac": "4.7.0",
           "automapper": "6.2.2"
         },
         "compile": {

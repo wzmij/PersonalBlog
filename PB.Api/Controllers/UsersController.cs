@@ -1,14 +1,15 @@
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using PB.Infrastucture.Commands;
+using PB.Infrastucture.Commands.User;
 using PB.Infrastucture.Services;
 
 namespace PB.Api.Controllers
 {
-    [Route("[controller]")]
-    public class UserController : Controller
+    public class UsersController : ApiController
     {
         private readonly IUserService _userService;
-        public UserController(IUserService userService)
+        public UsersController(ICommandDispatcher commandDispatcher, IUserService userService) : base(commandDispatcher)
         {
             _userService = userService;
         }
@@ -24,6 +25,14 @@ namespace PB.Api.Controllers
             }
 
             return Json(user);
+        }
+
+        [HttpPost("")]
+        public async Task<IActionResult> Put([FromBody]CreateUser command)
+        {
+            await _commandDispatcher.DispatchAsync(command);
+
+            return Created($"users/{command.Email}", null);
         }
     }
 }

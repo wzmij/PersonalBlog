@@ -3855,6 +3855,7 @@
       "PB.Infrastucture/1.0.0": {
         "dependencies": {
           "PB.Core": "1.0.0",
+          "Autofac": "4.7.0",
           "AutoMapper": "6.2.2"
         },
         "runtime": {

@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETStandard,Version=v2.0/",
-    "signature": "417b445c0bf883482649f51e78127a347e232834"
+    "signature": "463f95941e485d6dac9140e98be5c43ec4d7f298"
   },
   "compilationOptions": {},
   "targets": {
@@ -11,10 +11,20 @@
         "dependencies": {
           "NETStandard.Library": "2.0.1",
           "PB.Core": "1.0.0",
+          "Autofac": "4.7.0",
           "AutoMapper": "6.2.2"
         },
         "runtime": {
           "PB.Infrastucture.dll": {}
+        }
+      },
+      "Autofac/4.7.0": {
+        "dependencies": {
+          "NETStandard.Library": "2.0.1",
+          "System.ComponentModel": "4.3.0"
+        },
+        "runtime": {
+          "lib/netstandard1.1/Autofac.dll": {}
         }
       },
       "AutoMapper/6.2.2": {
@@ -442,6 +452,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "Autofac/4.7.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-y3QWj9NE+riKfgIxuouKJPmGchhj18jVSbw06S7PF8DMAnje2V74hF1yMzwXhtLkfB/L7oalhya4ZMNf80j73w==",
+      "path": "autofac/4.7.0",
+      "hashPath": "autofac.4.7.0.nupkg.sha512"
     },
     "AutoMapper/6.2.2": {
       "type": "package",
