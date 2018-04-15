@@ -1,0 +1,15 @@
+C:\_Project\PersonalBlog\PB.Api\obj\Debug\netcoreapp2.0\PB.Api.csproj.CoreCompileInputs.cache
+C:\_Project\PersonalBlog\PB.Api\obj\Debug\netcoreapp2.0\PB.Api.AssemblyInfoInputs.cache
+C:\_Project\PersonalBlog\PB.Api\obj\Debug\netcoreapp2.0\PB.Api.AssemblyInfo.cs
+C:\_Project\PersonalBlog\PB.Api\bin\Debug\netcoreapp2.0\PB.Api.deps.json
+C:\_Project\PersonalBlog\PB.Api\bin\Debug\netcoreapp2.0\PB.Api.runtimeconfig.json
+C:\_Project\PersonalBlog\PB.Api\bin\Debug\netcoreapp2.0\PB.Api.runtimeconfig.dev.json
+C:\_Project\PersonalBlog\PB.Api\bin\Debug\netcoreapp2.0\PB.Api.dll
+C:\_Project\PersonalBlog\PB.Api\bin\Debug\netcoreapp2.0\PB.Api.pdb
+C:\_Project\PersonalBlog\PB.Api\bin\Debug\netcoreapp2.0\PB.Core.dll
+C:\_Project\PersonalBlog\PB.Api\bin\Debug\netcoreapp2.0\PB.Infrastucture.dll
+C:\_Project\PersonalBlog\PB.Api\bin\Debug\netcoreapp2.0\PB.Infrastucture.pdb
+C:\_Project\PersonalBlog\PB.Api\bin\Debug\netcoreapp2.0\PB.Core.pdb
+C:\_Project\PersonalBlog\PB.Api\obj\Debug\netcoreapp2.0\PB.Api.csproj.CopyComplete
+C:\_Project\PersonalBlog\PB.Api\obj\Debug\netcoreapp2.0\PB.Api.dll
+C:\_Project\PersonalBlog\PB.Api\obj\Debug\netcoreapp2.0\PB.Api.pdb

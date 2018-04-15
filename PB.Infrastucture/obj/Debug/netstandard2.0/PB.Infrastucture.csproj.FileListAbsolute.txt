@@ -1,0 +1,11 @@
+C:\_Project\PersonalBlog\PB.Infrastucture\bin\Debug\netstandard2.0\PB.Infrastucture.deps.json
+C:\_Project\PersonalBlog\PB.Infrastucture\bin\Debug\netstandard2.0\PB.Infrastucture.dll
+C:\_Project\PersonalBlog\PB.Infrastucture\bin\Debug\netstandard2.0\PB.Infrastucture.pdb
+C:\_Project\PersonalBlog\PB.Infrastucture\bin\Debug\netstandard2.0\PB.Core.dll
+C:\_Project\PersonalBlog\PB.Infrastucture\bin\Debug\netstandard2.0\PB.Core.pdb
+C:\_Project\PersonalBlog\PB.Infrastucture\obj\Debug\netstandard2.0\PB.Infrastucture.csproj.CoreCompileInputs.cache
+C:\_Project\PersonalBlog\PB.Infrastucture\obj\Debug\netstandard2.0\PB.Infrastucture.AssemblyInfoInputs.cache
+C:\_Project\PersonalBlog\PB.Infrastucture\obj\Debug\netstandard2.0\PB.Infrastucture.AssemblyInfo.cs
+C:\_Project\PersonalBlog\PB.Infrastucture\obj\Debug\netstandard2.0\PB.Infrastucture.csproj.CopyComplete
+C:\_Project\PersonalBlog\PB.Infrastucture\obj\Debug\netstandard2.0\PB.Infrastucture.dll
+C:\_Project\PersonalBlog\PB.Infrastucture\obj\Debug\netstandard2.0\PB.Infrastucture.pdb
