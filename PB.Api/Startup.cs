@@ -34,10 +34,8 @@ namespace PB.Api
 
             var builder = new ContainerBuilder();
             builder.Populate(services);
-            builder.RegisterType<MemoryUserRepository>().As<IUserRepository>().SingleInstance();
-            builder.RegisterType<MemoryPostRepository>().As<IPostRepository>().SingleInstance();
-            builder.RegisterType<MemoryCategoryRepository>().As<ICategoryRepository>().SingleInstance();
-            builder.RegisterType<UserService>().As<IUserService>().InstancePerLifetimeScope();
+            builder.RegisterModule<RepositoryModule>();
+            builder.RegisterModule<ServiceModule>();
             builder.RegisterInstance(AutoMapperConfig.Initialize()).SingleInstance();
             builder.RegisterModule<CommandModule>();
             var container = builder.Build();
