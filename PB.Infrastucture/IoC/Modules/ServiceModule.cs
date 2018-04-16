@@ -16,6 +16,10 @@ namespace PB.Infrastucture.IoC.Modules
                 .Where(x => x.IsAssignableTo<IService>())
                 .AsImplementedInterfaces()
                 .InstancePerLifetimeScope();
+
+            builder.RegisterType<IEncrypter>()
+                .As<Encrypter>()
+                .SingleInstance();
         }
     }
 }
