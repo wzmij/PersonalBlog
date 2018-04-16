@@ -15,11 +15,16 @@ namespace PB.Tests.Services
         {
             var userRepositoryMock = new Mock<IUserRepository>();
             var mapperMock = new Mock<IMapper>();
+            var encrypterMock = new Mock<IEncrypter>();
+            encrypterMock.Setup(x => x.GetHash(It.IsAny<string>(), It.IsAny<string>())).Returns("hash");
+            encrypterMock.Setup(x => x.GetSalt(It.IsAny<string>())).Returns("salt");
 
-            var userService = new UserService(userRepositoryMock.Object, mapperMock.Object);
+            var userService = new UserService(userRepositoryMock.Object, mapperMock.Object, encrypterMock.Object);
             await userService.RegisterAsync("wojtek@test.pl", "test", "wojtek");
 
             userRepositoryMock.Verify(x => x.AddAsync(It.IsAny<User>()), Times.Once);
+            encrypterMock.Verify(x => x.GetSalt(It.IsAny<string>()), Times.Once);
+            encrypterMock.Verify(x => x.GetHash(It.IsAny<string>(), It.IsAny<string>()), Times.Once);
         }
 
         [Fact]
@@ -27,14 +32,15 @@ namespace PB.Tests.Services
         {
             var userRepositoryMock = new Mock<IUserRepository>();           
             var mapperMock = new Mock<IMapper>();
+            var encrypterMock = new Mock<IEncrypter>();
 
             var user = new User("wojtek", "wojtek@test.pl", "test", "salt");
 
             userRepositoryMock.Setup(x => x.GetAsync(It.IsAny<string>()))
                               .ReturnsAsync(user);
 
-            var userService = new UserService(userRepositoryMock.Object, mapperMock.Object);
-            await userService.LoginAsync("wojtek@test.pl");
+            var userService = new UserService(userRepositoryMock.Object, mapperMock.Object, encrypterMock.Object);
+            await userService.GetAsync("wojtek@test.pl");
             
             userRepositoryMock.Verify(x => x.GetAsync(It.IsAny<string>()), Times.Once());
         }
