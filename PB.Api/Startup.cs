@@ -38,6 +38,7 @@ namespace PB.Api
             builder.RegisterModule<ServiceModule>();
             builder.RegisterInstance(AutoMapperConfig.Initialize()).SingleInstance();
             builder.RegisterModule<CommandModule>();
+            builder.RegisterModule(new SettingsModule(Configuration));
             var container = builder.Build();
 
             return new AutofacServiceProvider(container);
