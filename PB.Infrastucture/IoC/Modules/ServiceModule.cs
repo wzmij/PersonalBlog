@@ -17,8 +17,8 @@ namespace PB.Infrastucture.IoC.Modules
                 .AsImplementedInterfaces()
                 .InstancePerLifetimeScope();
 
-            builder.RegisterType<IEncrypter>()
-                .As<Encrypter>()
+            builder.RegisterType<Encrypter>()
+                .As<IEncrypter>()
                 .SingleInstance();
         }
     }
