@@ -16,9 +16,9 @@ namespace PB.Infrastucture.Services
         private readonly SigningCredentials _signingCredentials;
         private readonly JwtHeader _jwtHeader;
 
-        public JwtHandler(IOptions<JwtSettings> settings)
+        public JwtHandler(JwtSettings settings)
         {
-            _options = settings.Value;
+            _options = settings;
             _securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_options.SecretKey));
             _signingCredentials = new SigningCredentials(_securityKey, SecurityAlgorithms.HmacSha256);
             _jwtHeader = new JwtHeader(_signingCredentials);
@@ -28,7 +28,7 @@ namespace PB.Infrastucture.Services
         {
             var nowUtc = DateTime.UtcNow;
             var expires = nowUtc.AddMinutes(_options.ExpireMinutes);
-            var centuryBegin = new DateTime(1970,1,1).ToUniversalTime();
+            var centuryBegin = new DateTime(1970, 1, 1).ToUniversalTime();
             var exp = (long)(new TimeSpan(expires.Ticks - centuryBegin.Ticks).TotalSeconds);
             var iat = (long)(new TimeSpan(nowUtc.Ticks - centuryBegin.Ticks).TotalSeconds);
             var payload = new JwtPayload

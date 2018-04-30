@@ -13,3 +13,4 @@ C:\_Project\PersonalBlog\PB.Api\bin\Debug\netcoreapp2.0\PB.Core.pdb
 C:\_Project\PersonalBlog\PB.Api\obj\Debug\netcoreapp2.0\PB.Api.csproj.CopyComplete
 C:\_Project\PersonalBlog\PB.Api\obj\Debug\netcoreapp2.0\PB.Api.dll
 C:\_Project\PersonalBlog\PB.Api\obj\Debug\netcoreapp2.0\PB.Api.pdb
+C:\_Project\PersonalBlog\PB.Api\obj\Debug\netcoreapp2.0\PB.Api.csprojResolveAssemblyReference.cache

@@ -49,7 +49,7 @@ namespace PB.Api
             var jwtOptions = new JwtSettings();
             jwtSection.Bind(jwtOptions);
             services.AddAuthentication()
-                .AddJwtBearer(cfg => 
+                .AddJwtBearer(cfg =>
                 {
                     cfg.TokenValidationParameters = new TokenValidationParameters
                     {
@@ -67,11 +67,6 @@ namespace PB.Api
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            var builder = new ConfigurationBuilder()
-                    .SetBasePath(env.ContentRootPath)
-                    .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
-                    .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true);
-
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

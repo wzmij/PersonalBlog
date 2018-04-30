@@ -9,3 +9,4 @@ C:\_Project\PersonalBlog\PB.Infrastucture\obj\Debug\netstandard2.0\PB.Infrastuct
 C:\_Project\PersonalBlog\PB.Infrastucture\obj\Debug\netstandard2.0\PB.Infrastucture.csproj.CopyComplete
 C:\_Project\PersonalBlog\PB.Infrastucture\obj\Debug\netstandard2.0\PB.Infrastucture.dll
 C:\_Project\PersonalBlog\PB.Infrastucture\obj\Debug\netstandard2.0\PB.Infrastucture.pdb
+C:\_Project\PersonalBlog\PB.Infrastucture\obj\Debug\netstandard2.0\PB.Infrastucture.csprojResolveAssemblyReference.cache
