@@ -15,7 +15,7 @@ namespace PB.Infrastucture.IoC.Modules
             builder.RegisterAssemblyTypes(assembly)
                 .Where(x => x.IsAssignableTo<IRepository>())
                 .AsImplementedInterfaces()
-                .InstancePerLifetimeScope();
+                .SingleInstance();
         }
     }
 }
