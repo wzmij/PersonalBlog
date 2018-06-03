@@ -1,4 +1,9 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using PB.Infrastucture.Commands;
 using PB.Infrastucture.Commands.User;
@@ -9,11 +14,12 @@ namespace PB.Api.Controllers
     public class UsersController : ApiController
     {
         private readonly IUserService _userService;
-        public UsersController(ICommandDispatcher commandDispatcher, IUserService userService) : base(commandDispatcher)
+        public UsersController(IUserService userService, ICommandDispatcher commandDispatcher) : base(commandDispatcher)
         {
             _userService = userService;
         }
 
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         [HttpGet("{email}")]
         public async Task<IActionResult> Get(string email)
         {

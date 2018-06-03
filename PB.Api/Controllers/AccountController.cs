@@ -1,4 +1,5 @@
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using PB.Infrastucture.Commands;
 using PB.Infrastucture.Services;
@@ -14,17 +15,11 @@ namespace PB.Api.Controllers
         }
 
         [HttpGet("token")]
-        public async Task<IActionResult> Get()
+        public IActionResult Get()
         {
-            var token = _jwtHandler.Create("user@test.pl");
+            var token = _jwtHandler.Create("test@o2.pl");
 
             return Json(token);
-        }
-
-        [HttpGet("auth")]
-        public async Task<IActionResult> GetAuth()
-        {
-            return Content("Auth ok");
         }
     }
 }

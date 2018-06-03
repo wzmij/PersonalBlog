@@ -1,24 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Autofac;
-using Autofac.Extensions.DependencyInjection;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
+﻿using System.Text;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
-using PB.Core.Repositories;
+using PB.Infrastucture.Settings;
+using PB.Infrastucture.Services;
 using PB.Infrastucture.IoC.Modules;
 using PB.Infrastucture.Mappers;
-using PB.Infrastucture.Repositories;
-using PB.Infrastucture.Services;
-using PB.Infrastucture.Settings;
+using Autofac;
+using Autofac.Extensions.DependencyInjection;
+using System;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 namespace PB.Api
 {
@@ -35,7 +31,29 @@ namespace PB.Api
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            services.AddLogging();
 
+            var jwtSection = Configuration.GetSection("jwt");
+            var jwtOptions = new JwtSettings();
+            jwtSection.Bind(jwtOptions);
+            services.AddAuthentication(options => 
+            { 
+                options.DefaultAuthenticateScheme =  JwtBearerDefaults.AuthenticationScheme; 
+            })
+            .AddJwtBearer(cfg => 
+                {
+                    cfg.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtOptions.SecretKey)),
+                        ValidateIssuerSigningKey = true,
+                        ValidateIssuer = true,
+                        ValidIssuer = jwtOptions.Issuer,
+                        ValidateAudience = false,
+                        ValidateLifetime = true
+                    };
+                });
+            services.Configure<JwtSettings>(jwtSection);
+            
             var builder = new ContainerBuilder();
             builder.Populate(services);
             builder.RegisterModule<RepositoryModule>();
@@ -45,28 +63,13 @@ namespace PB.Api
             builder.RegisterModule(new SettingsModule(Configuration));
             var container = builder.Build();
 
-            var jwtSection = Configuration.GetSection("Jwt");
-            var jwtOptions = new JwtSettings();
-            jwtSection.Bind(jwtOptions);
-            services.AddAuthentication()
-                .AddJwtBearer(cfg =>
-                {
-                    cfg.TokenValidationParameters = new TokenValidationParameters
-                    {
-                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtOptions.SecretKey)),
-                        ValidIssuer = jwtOptions.Issuer,
-                        ValidateAudience = false,
-                        ValidateLifetime = true
-                    };
-                });
-            services.Configure<JwtSettings>(jwtSection);
-
             return new AutofacServiceProvider(container);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
+            loggerFactory.AddDebug().AddConsole();
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

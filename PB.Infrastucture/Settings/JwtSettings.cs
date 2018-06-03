@@ -4,6 +4,6 @@ namespace PB.Infrastucture.Settings
     {
         public string SecretKey { get; set; }
         public string Issuer { get; set; }
-        public int ExpireMinutes { get; set; }
+        public int ExpiryMinutes { get; set; }
     }
 }

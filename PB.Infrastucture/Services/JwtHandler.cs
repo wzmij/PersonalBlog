@@ -27,8 +27,8 @@ namespace PB.Infrastucture.Services
         public JwtDTO Create(string email)
         {
             var nowUtc = DateTime.UtcNow;
-            var expires = nowUtc.AddMinutes(_options.ExpireMinutes);
-            var centuryBegin = new DateTime(1970, 1, 1).ToUniversalTime();
+            var expires = nowUtc.AddMinutes(_options.ExpiryMinutes);
+            var centuryBegin = new DateTime(1970,1,1).ToUniversalTime();
             var exp = (long)(new TimeSpan(expires.Ticks - centuryBegin.Ticks).TotalSeconds);
             var iat = (long)(new TimeSpan(nowUtc.Ticks - centuryBegin.Ticks).TotalSeconds);
             var payload = new JwtPayload

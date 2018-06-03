@@ -30,7 +30,7 @@
   },
   "libraries": {
     "Microsoft.NETCore.Platforms/1.1.0": {
-      "sha512": "3NkMlonfL1P4SI6ny5mohCK1HXVlPr384AgDooKb7Io+KWBeO6nWwUuoziVL1wIhmAeAyqL0tXKNHey+3ZFSOA==",
+      "sha512": "kz0PEW2lhqygehI/d6XsPCQzD7ff7gUJaVGPVETX611eadGsA3A877GdSlU0LRVMCTH/+P3o2iDTak+S08V2+A==",
       "type": "package",
       "path": "microsoft.netcore.platforms/1.1.0",
       "files": [
@@ -177,7 +177,7 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Wojciech.Zmij\\.nuget\\packages\\": {},
+    "C:\\Users\\Wojciech\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
@@ -186,14 +186,14 @@
       "projectUniqueName": "C:\\_Project\\PersonalBlog\\PB.Core\\PB.Core.csproj",
       "projectName": "PB.Core",
       "projectPath": "C:\\_Project\\PersonalBlog\\PB.Core\\PB.Core.csproj",
-      "packagesPath": "C:\\Users\\Wojciech.Zmij\\.nuget\\packages\\",
+      "packagesPath": "C:\\Users\\Wojciech\\.nuget\\packages\\",
       "outputPath": "C:\\_Project\\PersonalBlog\\PB.Core\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Wojciech.Zmij\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Wojciech\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -201,7 +201,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "http://10.0.1.22:33/nuget": {},
+        "C:\\Users\\Wojciech\\.dotnet\\NuGetFallbackFolder": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
