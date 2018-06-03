@@ -1,8 +1,0 @@
-C:\_Project\PersonalBlog\PB.Core\bin\Debug\netstandard2.0\PB.Core.deps.json
-C:\_Project\PersonalBlog\PB.Core\bin\Debug\netstandard2.0\PB.Core.dll
-C:\_Project\PersonalBlog\PB.Core\bin\Debug\netstandard2.0\PB.Core.pdb
-C:\_Project\PersonalBlog\PB.Core\obj\Debug\netstandard2.0\PB.Core.csproj.CoreCompileInputs.cache
-C:\_Project\PersonalBlog\PB.Core\obj\Debug\netstandard2.0\PB.Core.AssemblyInfoInputs.cache
-C:\_Project\PersonalBlog\PB.Core\obj\Debug\netstandard2.0\PB.Core.AssemblyInfo.cs
-C:\_Project\PersonalBlog\PB.Core\obj\Debug\netstandard2.0\PB.Core.dll
-C:\_Project\PersonalBlog\PB.Core\obj\Debug\netstandard2.0\PB.Core.pdb
