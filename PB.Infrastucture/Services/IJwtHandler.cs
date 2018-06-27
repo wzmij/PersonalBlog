@@ -4,6 +4,6 @@ namespace PB.Infrastucture.Services
 {
     public interface IJwtHandler
     {
-        JwtDTO Create(string email);
+        JwtDTO CreateToken(string email);
     }
 }

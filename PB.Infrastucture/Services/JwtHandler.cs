@@ -24,7 +24,7 @@ namespace PB.Infrastucture.Services
             _jwtHeader = new JwtHeader(_signingCredentials);
         }
 
-        public JwtDTO Create(string email)
+        public JwtDTO CreateToken(string email)
         {
             var nowUtc = DateTime.UtcNow;
             var expires = nowUtc.AddMinutes(_options.ExpiryMinutes);
