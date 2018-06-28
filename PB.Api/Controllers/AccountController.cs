@@ -17,7 +17,7 @@ namespace PB.Api.Controllers
         [HttpGet("token")]
         public IActionResult Get()
         {
-            var token = _jwtHandler.Create("test@o2.pl");
+            var token = _jwtHandler.CreateToken("test@o2.pl");
 
             return Json(token);
         }
