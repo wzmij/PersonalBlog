@@ -2,7 +2,7 @@ using Microsoft.Extensions.Configuration;
 
 namespace PB.Infrastucture.Extenstions
 {
-    public static class SettingExtenesion
+    public static class SettingExtenesions
     {
         public static T GetSettings<T>(this IConfiguration configuration) where T : new()
         {

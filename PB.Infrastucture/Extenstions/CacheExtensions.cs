@@ -4,7 +4,7 @@ using PB.Infrastucture.DTO;
 
 namespace PB.Infrastucture.Extenstions
 {
-    public static class CacheExtension
+    public static class CacheExtensions
     {
         public static void SetJwt(this IMemoryCache cache, Guid tokenId, JwtDTO jtw)
             => cache.Set(GetJwtKey(tokenId), jtw, TimeSpan.FromSeconds(5));
