@@ -13,13 +13,5 @@ namespace PB.Api.Controllers
         {
             _jwtHandler = jwtHandler;
         }
-
-        [HttpGet("token")]
-        public IActionResult Get()
-        {
-            var token = _jwtHandler.CreateToken("test@o2.pl");
-
-            return Json(token);
-        }
     }
 }

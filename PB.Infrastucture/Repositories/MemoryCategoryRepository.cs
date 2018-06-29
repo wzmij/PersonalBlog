@@ -26,7 +26,7 @@ namespace PB.Infrastucture.Repositories
 
             if(category == null)
             {
-                throw new Exception("User don't exist");
+                throw new Exception("Category don't exist");
             }
 
             _categories.Remove(category);

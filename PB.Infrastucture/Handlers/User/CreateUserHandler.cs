@@ -1,3 +1,4 @@
+using System;
 using System.Threading.Tasks;
 using PB.Infrastucture.Commands;
 using PB.Infrastucture.Commands.User;
@@ -14,7 +15,7 @@ namespace PB.Infrastucture.Handlers.User
         }
         public async Task HandleAsync(CreateUser command)
         {
-            await _userService.RegisterAsync(command.Email, command.Password, command.Username);
+            await _userService.RegisterAsync(Guid.NewGuid(), command.Email, command.Password, command.Username);
         }
     }
 }

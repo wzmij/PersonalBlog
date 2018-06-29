@@ -1,5 +1,6 @@
 using System;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Memory;
 using PB.Infrastucture.Commands;
@@ -11,15 +12,18 @@ namespace PB.Api.Controllers
     public class LoginController : ApiController
     {
         private readonly IMemoryCache _cache;
-        protected LoginController(ICommandDispatcher commandDispatcher, IMemoryCache cache) : base(commandDispatcher)
+        public LoginController(ICommandDispatcher commandDispatcher,
+            IMemoryCache cache) 
+            : base(commandDispatcher)
         {
             _cache = cache;
         }
 
-        public async Task<IActionResult> Post(LoginUser command)
+        [AllowAnonymous]
+        public async Task<IActionResult> Post([FromBody]LoginUser command)
         {
             command.TokenId = Guid.NewGuid();
-            await _commandDispatcher.DispatchAsync(command);
+            await DispatchAsync(command);
             var jwt = _cache.GetJwt(command.TokenId);
 
             return Json(jwt);
