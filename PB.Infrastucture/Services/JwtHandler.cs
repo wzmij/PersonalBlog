@@ -24,7 +24,7 @@ namespace PB.Infrastucture.Services
             _jwtHeader = new JwtHeader(_signingCredentials);
         }
 
-        public JwtDTO Create(string email)
+        public JwtDTO CreateToken(Guid userId)
         {
             var nowUtc = DateTime.UtcNow;
             var expires = nowUtc.AddMinutes(_options.ExpiryMinutes);
@@ -33,11 +33,12 @@ namespace PB.Infrastucture.Services
             var iat = (long)(new TimeSpan(nowUtc.Ticks - centuryBegin.Ticks).TotalSeconds);
             var payload = new JwtPayload
             {
-                {"sub", email},
+                {"sub", userId},
                 {"iss", _options.Issuer},
                 {"iat", iat},
                 {"exp", exp},
-                {"unique_name", email},
+                {"unique_name", userId},
+                {"roles", "admin"}
             };
             var jwt = new JwtSecurityToken(_jwtHeader, payload);
             var token = _jwtSecurityTokenHandler.WriteToken(jwt);

@@ -23,7 +23,7 @@ namespace PB.Infrastucture.Repositories
 
             if(post == null)
             {
-                throw new Exception("User don't exist");
+                throw new Exception("Post don't exist");
             }
 
             _posts.Remove(post);

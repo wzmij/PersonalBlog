@@ -33,10 +33,11 @@ namespace PB.Api.Controllers
             return Json(user);
         }
 
+        [AllowAnonymous]
         [HttpPost("")]
         public async Task<IActionResult> Put([FromBody]CreateUser command)
         {
-            await _commandDispatcher.DispatchAsync(command);
+            await DispatchAsync(command);
 
             return Created($"users/{command.Email}", null);
         }

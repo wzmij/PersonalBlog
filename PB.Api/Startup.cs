@@ -32,6 +32,7 @@ namespace PB.Api
         {
             services.AddMvc();
             services.AddLogging();
+            services.AddMemoryCache();
 
             var jwtSection = Configuration.GetSection("jwt");
             var jwtOptions = new JwtSettings();

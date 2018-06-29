@@ -1,24 +1,29 @@
 using System;
+using System.Collections.Generic;
 
 namespace PB.Core.Models
 {
     public class User
     {
-        public int Id { get; protected set; }
+        public Guid Id { get; protected set; }
         public string Username { get; protected set; }
         public string FirstName { get; protected set; }
         public string LastName { get; protected set; }
         public string Email { get; protected set; }
+        public string Role { get; set; }
         public string Password { get; protected set; }
         public string Salt { get; protected set; }
+        public virtual IEnumerable<Post> Posts { get; protected set; }
         public DateTime CreatedAt { get; protected set; }
         public DateTime UpdatedAt { get; protected set; }
 
-        public User(string username, string email, string password, string salt)
+        public User(Guid userId ,string username, string email, string password, string salt, string role)
         {
+            Id = userId;
             SetUsername(username);
             SetEmail(email);
             SetPassword(password, salt);
+            Role = role;
             CreatedAt = DateTime.UtcNow;
         }
 

@@ -13,7 +13,7 @@ namespace PB.Infrastucture.Repositories
 
         public MemoryUserRepository()
         {
-            _users.Add(new User("test", "test@o2.pl", "test", "test"));
+            _users.Add(new User(Guid.NewGuid() ,"test", "test@o2.pl", "test", "test", Roles.Admin));
         }
 
         public async Task AddAsync(User user)
@@ -25,10 +25,10 @@ namespace PB.Infrastucture.Repositories
         public async Task<User> GetAsync(string email)
             => await Task.FromResult(_users.SingleOrDefault(x => x.Email == email.ToLowerInvariant()));
 
-        public async Task<User> GetAsync(int id)
+        public async Task<User> GetAsync(Guid id)
             => await Task.FromResult(_users.SingleOrDefault(x => x.Id == id));
 
-        public async Task RemoveAsync(int id)
+        public async Task RemoveAsync(Guid id)
         {
             var user = await GetAsync(id);
 
