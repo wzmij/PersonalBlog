@@ -13,12 +13,12 @@ namespace PB.Core.Models
         public DateTime CreatedAt { get; protected set; }
         public DateTime UpdatedAt { get; protected set; }
 
-        public Post(string header, string body, User user, Category categories)
+        public Post(string header, string body, Guid userId, int categoryId)
         {
             SetHeader(header);
             SetBody(body);
-            UserId = user.Id;
-            CategoryId = categories.Id;
+            UserId = userId;
+            CategoryId = categoryId;
             CreatedAt = DateTime.Now;            
         }
 

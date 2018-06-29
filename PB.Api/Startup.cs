@@ -15,6 +15,7 @@ using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using System;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using PB.Api.Framework;
 
 namespace PB.Api
 {
@@ -76,6 +77,7 @@ namespace PB.Api
                 app.UseDeveloperExceptionPage();
             }
             app.UseAuthentication();
+            app.UseCustomExtensionHandler();
             app.UseMvc();
         }
     }
